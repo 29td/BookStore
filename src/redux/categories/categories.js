@@ -1,15 +1,12 @@
-const UNDER_CONSTRUCTION = 'bookstore/categories/UNDER_CONSTRACTION';
-const COMPELET = 'bookstore/categories/COMPLETE';
+const CHECK = 'bookstore/categories/CHECK';
 
-const categories = [];
-
-const categoriesReducer = (state = categories, action) => {
+export default (state = [], action) => {
   switch (action.type) {
-    case COMPELET:
-      return UNDER_CONSTRUCTION;
+    case CHECK:
+      return 'Under construction';
     default:
       return state;
   }
 };
 
-export default categoriesReducer;
+export const checkStatus = () => ({ type: CHECK });

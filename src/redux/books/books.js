@@ -1,32 +1,30 @@
+import { v4 as uuidv4 } from 'uuid';
+
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const books = [];
+const books = [
+  { id: uuidv4(), title: 'The book of Eli', author: 'Eli' },
+  { id: uuidv4(), title: 'Jane Eyre', author: 'Charlotte' },
+];
 
-export const addBook = (id, title) => ({
+export const addBook = (data) => ({
   type: ADD_BOOK,
-  book: {
-    id,
-    name: title,
-  },
+  data,
 });
 
-export const removeBook = (ID) => ({
+export const removeBook = (id) => ({
   type: REMOVE_BOOK,
-  id: ID,
+  id,
 });
 
 const bookReducer = (state = books, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return {
-        ...state,
-        books: [...state, action.book],
-      };
+      return [...state, action.data];
+
     case REMOVE_BOOK:
-      return {
-        ...state, books: books.filter((e) => e.id !== action.id),
-      };
+      return state.filter((e) => e.id !== action.id);
     default:
       return state;
   }
