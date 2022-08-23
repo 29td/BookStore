@@ -1,16 +1,15 @@
+import { useSelector } from 'react-redux';
+
 import Book from './Book';
 import FormAdd from './Form';
 
 const Books = () => {
-  const books = [
-    { id: 'b1', title: 'The book of Eli', author: 'Eli' },
-    { id: 'b2', title: 'Jane Eyre', author: 'Charlotte' },
-  ];
+  const books = useSelector((state) => state.books);
 
   return (
     <>
       {books.map((book) => (
-        <Book key={book.id} title={book.title} author={book.author} />
+        <Book key={book.id} id={book.id} title={book.title} author={book.author} />
       ))}
       <FormAdd />
     </>
