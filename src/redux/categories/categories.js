@@ -1,9 +1,8 @@
 const CHECK = 'bookstore/categories/CHECK';
 
-export default (state = [], action) => {
 const categories = [];
 
-const categoriesReducer = (state = categories, action) => {
+export default (state = categories, action) => {
   switch (action.type) {
     case CHECK:
       return 'Under construction';
