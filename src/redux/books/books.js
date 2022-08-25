@@ -23,7 +23,7 @@ const bookReducer = (state = books, action) => {
     case `${FETCH_BOOK}/fulfilled`:
       return action.payload;
     case `${ADD_BOOK}/fulfilled`:
-      return [...state.books, action.payload];
+      return [...state, action.payload];
     case `${REMOVE_BOOK}/fulfilled`:
       return state.filter((book) => book.item_id !== action.payload);
     default:
@@ -59,15 +59,13 @@ export const postBook = createAsyncThunk(ADD_BOOK, async (book) => {
     },
   });
 
-  return { book };
+  return book;
 });
 
 export const deleteBook = createAsyncThunk(REMOVE_BOOK, async (id) => {
   await fetch(`${API_URL}/${id}`, {
     method: 'DELETE',
-    body: JSON.stringify({
-      item_id: id,
-    }),
+    body: { item_id: id },
   });
   return id;
 });

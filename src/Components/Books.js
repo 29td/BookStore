@@ -5,8 +5,8 @@ import FormAdd from './Form';
 import { getBooks } from '../redux/books/books';
 
 const Books = () => {
-  const books = useSelector((state) => state.books) || [];
   const dispatch = useDispatch();
+  const books = useSelector((state) => state.books) || [];
 
   useEffect(() => {
     dispatch(getBooks());
@@ -14,8 +14,14 @@ const Books = () => {
 
   return (
     <>
+      <h1>Book Lists</h1>
       {books.map((book) => (
-        <Book key={book.item_id} id={book.item_id} title={book.title} author={book.author} />
+        <Book
+          key={book.item_id}
+          id={book.item_id}
+          title={book.title}
+          author={book.author}
+        />
       ))}
       <FormAdd />
     </>
