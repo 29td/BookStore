@@ -1,0 +1,238 @@
+$color-background: #fafafa;
+$color-background-root: #f5f6fa;
+$color-text-primary: #121212;
+$color-text-secondary: #888;
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Roboto Slab', sans-serif;
+$color-border: #e8e8e8;
+$color-blue: #0290ff;
+$color-blue-light: #4386bf;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $color-background-root;
+  padding: 2rem 4rem;
+}
+
+#root {
+  background-color: #fff;
+}
+
+.header {
+  font-family: $font-primary;
+  display: flex;
+  gap: 4.7rem;
+  align-items: center;
+  padding: 3rem 10rem;
+  border-bottom: 1px solid $color-border;
+
+  &__title {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-blue;
+      font-weight: 700;
+      font-size: 3rem;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    gap: 4.1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-text-primary;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      letter-spacing: 1.9px;
+    }
+  }
+}
+
+.container {
+  color: $color-text-primary;
+  background-color: $color-background;
+  padding: 3.8rem 10rem;
+  padding-bottom: 20rem;
+  font-family: $font-primary;
+}
+
+.books {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid $color-border;
+}
+
+.book {
+  padding: 3.2rem 2.7rem;
+  background-color: #fff;
+  border: 1px solid $color-border;
+  font-family: $font-secondary;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &__category {
+    font-size: 1.4rem;
+    font-weight: 700;
+    opacity: 0.5;
+    margin-bottom: 0.4rem;
+    font-family: $font-primary;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  &__author,
+  &__btn {
+    color: $color-blue-light;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+
+  &__btn {
+    &--remove {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: $font-secondary;
+      font-weight: 300;
+    }
+
+    &--update {
+      cursor: pointer;
+      border: none;
+      text-transform: uppercase;
+      background: none;
+      background-color: $color-blue;
+      padding: 0.8rem 2.2rem;
+      border-radius: 3px;
+      color: #fff;
+      font-family: $font-secondary;
+      font-weight: 300;
+    }
+  }
+
+  &__btn-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 2.1rem;
+    gap: 1.6rem;
+  }
+
+  &__separator {
+    height: 2.4rem;
+    width: 1px;
+    background-color: $color-border;
+  }
+
+  &__circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+  }
+
+  &__percent {
+    font-family: $font-primary;
+    font-size: 3.2rem;
+    margin-bottom: 0.4rem;
+  }
+
+  &__completed {
+    font-family: $font-primary;
+    font-size: 1.4rem;
+    opacity: 0.5;
+  }
+
+  &__svg {
+    width: 7.2rem;
+    height: 7.2rem;
+    transform: rotate(-90deg);
+
+    &--circle {
+      fill: none;
+      stroke: $color-border;
+      stroke-width: 5;
+      stroke-linecap: round;
+    }
+  }
+
+  &__chapter {
+    &--current {
+      text-transform: uppercase;
+      opacity: 0.5;
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    &--number {
+      font-size: 1.7rem;
+      margin-bottom: 2.3rem;
+    }
+  }
+}
+
+.form-container {
+  padding-top: 2.9rem;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-text-secondary;
+    margin-bottom: 1.9rem;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 6fr 4fr 2fr;
+  gap: 3rem;
+
+  &__control {
+    padding: 1.3rem 1.7rem;
+    font-size: 1.6rem;
+    outline: none;
+    border: 1px solid $color-border;
+
+    &::placeholder {
+      font-family: $font-primary;
+      opacity: 0.5;
+    }
+
+    &--btn {
+      background: none;
+      border: none;
+      background-color: $color-blue;
+      border-radius: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      font-family: $font-secondary;
+      font-size: 1.4rem;
+    }
+  }
+}
